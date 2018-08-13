@@ -1,0 +1,31 @@
+.search-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 80%;
+  .search-heading {
+    text-align: center;
+  }
+  .input-search {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+
+  &::-webkit-input-placeholder {
+      text-align: center;
+   }
+
+   &:-moz-placeholder { /* Firefox 18- */
+      text-align: center;
+   }
+
+   &::-moz-placeholder {  /* Firefox 19+ */
+      text-align: center;
+   }
+
+   &:-ms-input-placeholder {
+      text-align: center;
+   }
+  }
+}

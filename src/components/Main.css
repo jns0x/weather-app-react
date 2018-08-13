@@ -1,0 +1,5 @@
+.main-cntainer {
+  height: 100%;
+  display:flex;
+  justify-content: center;
+}

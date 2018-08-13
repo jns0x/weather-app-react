@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HotModuleReplacementPlugin = new webpack.HotModuleReplacementPlugin();
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
@@ -31,16 +32,20 @@ module.exports = {
           loader: "babel-loader"
         }
       },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: ["style-loader", "css-loader"]
-      }
       // {
-      //   test: /\.json$/,
-      //   loader: "json-loader"
-      // }
+      //   test: /\.css$/,
+      //   include: /node_modules/,
+      //   use: ["style-loader", "css-loader"]
+      // },
+      {
+        test: /\.css$|scss$|sass$/,
+        // exclude: /node_modules/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
     ]
   },
   plugins: [htmlPlugin, HotModuleReplacementPlugin]
+  // new ExtractTextPlugin('dist/style.css', {
+  //   allChunks: true
+  //
 };
