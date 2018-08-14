@@ -99,10 +99,6 @@ export const citiesArr = [
 //Store layout
 
 export const initialStore = {
-  weatherData: {},
-  currentDisplay: {
-    somedata: {}
-  },
   itemsHasErrored: false,
-  isLoading: false
+  itemsIsLoading: false
 }

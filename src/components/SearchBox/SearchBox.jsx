@@ -1,33 +1,26 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-import { itemsFetchData, setTypedCity } from '../../actions';
+import { connect } from 'react-redux';
+import { setTypedCity, getWeather } from '../../actions';
+import store from '../../store/';
 
 import './SearchBox.scss';
-
-
-
 class SearchBox extends Component {
-
   handleChange(e) {
-    e.preventDefault();
     store.dispatch(setTypedCity(e.target.value));
   }
-
   handleSubmit(e) {
     e.preventDefault();
-    const { currentData } = state;
-    store.dispatch(itemsFetchData(typedCity));
+    const { typing } = store.getState();
+    store.dispatch(getWeather(typing));
   };
   render() {
-    const { handleChange, handleSubmit } = this.props
     return (
       < div className="search-box" >
         <h3 className="search-heading">Type city name</h3>
-        <form onSubmit={handleSubmit}>
-          <input className="input-search" type="text" placeholder="Type city name" onChange={handleChange} />
+        <form onSubmit={this.handleSubmit}>
+          <input className="input-search" type="text" placeholder="Type city name" onChange={this.handleChange} />
           <button>Go</button>
         </form>
-
       </div >
     )
   }
@@ -35,15 +28,8 @@ class SearchBox extends Component {
 
 // const mapStateToProps = (state) => {
 //   return {
-//     items: state.items,
 //     hasErrored: state.itemsHasErrored,
-//     isLoading: state.itemsIsLoading
-//   };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     fetchData: (url) => dispatch(itemsFetchData(url))
+//     isLoading: state.itemsIsLoading,
 //   };
 // };
 

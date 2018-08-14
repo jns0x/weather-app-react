@@ -3,7 +3,7 @@ import './SelectBox.scss';
 
 const SelectBox = (props) => (
   <div className="select-box">
-    <h2>{props.text}</h2>
+    <h2>dupa</h2>
   </div>
 )
 export default SelectBox;

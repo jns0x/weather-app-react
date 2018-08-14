@@ -1,0 +1,15 @@
+.weather-box {
+  border: 0.025rem solid white;
+  background: rgba($color: #7e7d7d, $alpha: 0.5);
+  width: 90%;
+  padding: 0.25rem 1rem;
+  display: flex;
+  justify-content: space-around;
+  .weather-icon {
+    align-self: center;
+  }
+  .weather-icon {
+    width: 45%;
+    margin: -2rem;
+  }
+}
