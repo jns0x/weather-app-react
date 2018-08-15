@@ -100,5 +100,7 @@ export const citiesArr = [
 
 export const initialStore = {
   itemsHasErrored: false,
-  itemsIsLoading: false
+  itemsIsLoading: false,
+  typing: '',
+  cityWeather: []
 }

@@ -3,22 +3,27 @@ import { connect } from 'react-redux';
 import SelectBox from './SelectBox/SelectBox';
 import SearchBox from './SearchBox/SearchBox';
 import WeatherBox from './WeatherBox/WeatherBox';
-import './Main.css';
+import BtnCities from './BtnCities/BtnCities';
+import './Main.scss';
 import store from '../store';
 import _ from "lodash";
 
 class Main extends Component {
+
   render() {
+    const { hasErrored, isLoading, cityWeather, cityList } = this.props
     return (
       <div className="main-container">
         <SearchBox />
-        {this.props.hasErrored ?
+        {hasErrored ?
           (<p>Sorry! There was an error loading the items</p>) : ''}
-        {this.props.isLoading ?
+        {isLoading ?
           (<p>Loading…</p>) : ''}
-        {this.props.cityWeather.id ?
-          <WeatherBox weather={this.props.cityWeather} key={this.props.cityWeather} /> : ''
+        {cityWeather.id ?
+          <WeatherBox weather={cityWeather} key={cityWeather.id} /> : ''
         }
+        {cityList.list ? cityList.list.map(item => <WeatherBox weather={item} key={item.id} />) : ''}
+        <BtnCities label="Cities in Poland" />
       </div>
     )
   }
@@ -27,7 +32,8 @@ const mapStateToProps = (state) => {
   return {
     hasErrored: state.itemsHasErrored,
     isLoading: state.itemsIsLoading,
-    cityWeather: state.cityWeather
+    cityWeather: state.cityWeather,
+    cityList: state.cityList
   };
 };
 

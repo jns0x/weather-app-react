@@ -8,7 +8,8 @@
     text-align: center;
   }
   .input-search {
-    border-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
     padding: 0.5rem;
     outline: none;
     border: none;
@@ -28,5 +29,20 @@
    &:-ms-input-placeholder {
       text-align: center;
    }
+  }
+  .btn--search {
+    background: white;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem;
+    outline: none;
+    border:none;
+    border-left: 0.1rem solid black;
+    cursor:pointer;
+    &:active{
+      background: lightblue;
+    }
   }
 }

@@ -6,6 +6,7 @@ import store from '../../store/';
 import './SearchBox.scss';
 class SearchBox extends Component {
   handleChange(e) {
+    e.preventDefault();
     store.dispatch(setTypedCity(e.target.value));
   }
   handleSubmit(e) {
@@ -19,18 +20,17 @@ class SearchBox extends Component {
         <h3 className="search-heading">Type city name</h3>
         <form onSubmit={this.handleSubmit}>
           <input className="input-search" type="text" placeholder="Type city name" onChange={this.handleChange} />
-          <button>Go</button>
+          <button onClick={this.handleSubmit} className="btn--search">Search</button>
         </form>
       </div >
     )
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     hasErrored: state.itemsHasErrored,
-//     isLoading: state.itemsIsLoading,
-//   };
-// };
+const mapStateToProps = (state) => {
+  return {
+    typing: state.typing
+  };
+};
 
-export default SearchBox;
+export default connect(mapStateToProps)(SearchBox);
