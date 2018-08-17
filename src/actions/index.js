@@ -42,6 +42,31 @@ export function idFetchDataSuccess(data) {
   };
 }
 
+export function sortTempAsc(sortedData) {
+  return {
+    type: 'SORT_BY_TEMP_ASC',
+    sortedData
+  };
+}
+export function sortTempDesc(sortedData) {
+  return {
+    type: 'SORT_BY_TEMP_DESC',
+    sortedData
+  };
+}
+export function sortWindAsc(sortedData) {
+  return {
+    type: 'SORT_BY_WIND_ASC',
+    sortedData
+  };
+}
+export function sortWindDesc(sortedData) {
+  return {
+    type: 'SORT_BY_WIND_DESC',
+    sortedData
+  };
+}
+
 export function getWeather(cityName) {
   return (dispatch) => {
     dispatch(resetFields());
@@ -52,7 +77,7 @@ export function getWeather(cityName) {
           throw Error(response.statusText);
         }
         dispatch(itemsIsLoading(false));
-        // console.log(response);
+
         return response;
       })
       .then((response) => response.data)
@@ -75,7 +100,6 @@ export function getWeatherList(ids) {
           throw Error(response.statusText);
         }
         dispatch(itemsIsLoading(false));
-        // console.log(response);
         return response;
       })
       .then((response) => response.data)

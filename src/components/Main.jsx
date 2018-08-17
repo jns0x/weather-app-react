@@ -4,6 +4,7 @@ import SelectBox from './SelectBox/SelectBox';
 import SearchBox from './SearchBox/SearchBox';
 import WeatherBox from './WeatherBox/WeatherBox';
 import BtnCities from './BtnCities/BtnCities';
+import BtnSorting from './BtnSorting/BtnSorting';
 import './Main.scss';
 import store from '../store';
 import _ from "lodash";
@@ -22,7 +23,9 @@ class Main extends Component {
         {cityWeather.id ?
           <WeatherBox weather={cityWeather} key={cityWeather.id} /> : ''
         }
+        {cityList.list ? <BtnSorting /> : ''}
         {cityList.list ? cityList.list.map(item => <WeatherBox weather={item} key={item.id} />) : ''}
+        {/* {cityList.list ? console.log(store.getState()) : ''} */}
         <BtnCities label="Cities in Poland" />
       </div>
     )

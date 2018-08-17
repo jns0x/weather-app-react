@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers, bindActionCreators } from 'redux';
 import { initialStore } from '../config';
 
 
@@ -51,9 +51,46 @@ export function typing(state = "", action) {
 }
 
 export function cityList(state = [], action) {
+  console.log(state);
   switch (action.type) {
     case "ID_FETCH_DATA_SUCCESS":
       return action.data;
+    case "SORT_BY_TEMP_ASC":
+      return {
+        ...state,
+        list: action.sortedData,
+        sort: {
+          temp: 'asc',
+          wind: ''
+        }
+      }
+    case "SORT_BY_TEMP_DESC":
+      return {
+        ...state,
+        list: action.sortedData,
+        sort: {
+          temp: 'desc',
+          wind: ''
+        }
+      }
+    case "SORT_BY_WIND_ASC":
+      return {
+        ...state,
+        list: action.sortedData,
+        sort: {
+          temp: '',
+          wind: 'asc'
+        }
+      }
+    case "SORT_BY_WIND_DESC":
+      return {
+        ...state,
+        list: action.sortedData,
+        sort: {
+          temp: '',
+          wind: 'desc'
+        }
+      }
     case "RESET_FIELDS":
       return '';
     default:
