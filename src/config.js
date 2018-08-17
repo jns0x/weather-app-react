@@ -1,7 +1,7 @@
 import _ from 'lodash';
 export const apiUrl = "https:/api.openweathermap.org/data/2.5/group?id=";
 export const apiUrlCity = "https:/api.openweathermap.org/data/2.5/weather?q=";
-export const apiKey = "&APPID=8496070a6ed3bd27bd80c6c4595509b1";
+export const apiKey = "&APPID=415ae6cb177439a3428024a8f2b41f09";
 export const menuItems = ["Search single city"];
 export const metric = "&units=metric";
 export const htmlMode = "&mode=html";
