@@ -80,6 +80,18 @@ export function sortHumidityDesc(sortedData) {
     sortedData
   };
 }
+export function sortCloudsAsc(sortedData) {
+  return {
+    type: 'SORT_BY_CLOUDS_ASC',
+    sortedData
+  };
+}
+export function sortCloudsDesc(sortedData) {
+  return {
+    type: 'SORT_BY_CLOUDS_DESC',
+    sortedData
+  };
+}
 
 export function getWeather(cityName) {
   return (dispatch) => {

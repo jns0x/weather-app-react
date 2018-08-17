@@ -2,7 +2,7 @@ import React from 'react';
 import store from '../../store';
 import Button from '../Button/Button'
 import { sortByTempFunc, sortByWindFunc, sortByHumidityFunc, sortByCloudsFunc } from '../../config';
-import { sortTempAsc, sortTempDesc, sortWindAsc, sortWindDesc, sortHumidityAsc, sortHumidityDesc } from '../../actions';
+import { sortTempAsc, sortTempDesc, sortWindAsc, sortWindDesc, sortHumidityAsc, sortHumidityDesc, sortCloudsDesc, sortCloudsAsc } from '../../actions';
 import './BtnSorting.scss';
 
 
@@ -32,20 +32,20 @@ const BtnSorting = () => {
 
   const sortByClouds = () => {
     if (!sortType.sort) {
-      store.dispatch(sortWindAsc(sortByCloudsFunc(citiesArr, 'asc')))
-    } else if (sortType.sort.wind === 'asc') {
-      store.dispatch(sortWindDesc(sortByCloudsFunc(citiesArr, 'desc')))
+      store.dispatch(sortCloudsAsc(sortByCloudsFunc(citiesArr, 'asc')))
+    } else if (sortType.sort.clouds === 'asc') {
+      store.dispatch(sortCloudsDesc(sortByCloudsFunc(citiesArr, 'desc')))
     } else {
-      store.dispatch(sortWindAsc(sortByCloudsFunc(citiesArr, 'asc')))
+      store.dispatch(sortCloudsAsc(sortByCloudsFunc(citiesArr, 'asc')))
     }
   }
   const sortByHumidity = () => {
     if (!sortType.sort) {
-      store.dispatch(sortWindAsc(sortByHumidityFunc(citiesArr, 'asc')))
-    } else if (sortType.sort.wind === 'asc') {
-      store.dispatch(sortWindDesc(sortByHumidityFunc(citiesArr, 'desc')))
+      store.dispatch(sortHumidityAsc(sortByHumidityFunc(citiesArr, 'asc')))
+    } else if (sortType.sort.humidity === 'asc') {
+      store.dispatch(sortHumidityDesc(sortByHumidityFunc(citiesArr, 'desc')))
     } else {
-      store.dispatch(sortWindAsc(sortByHumidityFunc(citiesArr, 'asc')))
+      store.dispatch(sortHumidityAsc(sortByHumidityFunc(citiesArr, 'asc')))
     }
   }
 
