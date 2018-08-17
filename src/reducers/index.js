@@ -91,6 +91,28 @@ export function cityList(state = [], action) {
           wind: 'desc'
         }
       }
+    case "SORT_BY_HUMIDITY_ASC":
+      return {
+        ...state,
+        list: action.sortedData,
+        sort: {
+          temp: '',
+          wind: '',
+          clouds: '',
+          humidity: 'asc'
+        }
+      }
+    case "SORT_BY_HUMIDITY_DESC":
+      return {
+        ...state,
+        list: action.sortedData,
+        sort: {
+          temp: '',
+          wind: '',
+          clouds: '',
+          humidity: 'desc'
+        }
+      }
     case "RESET_FIELDS":
       return '';
     default:

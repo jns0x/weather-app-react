@@ -67,6 +67,20 @@ export function sortWindDesc(sortedData) {
   };
 }
 
+export function sortHumidityAsc(sortedData) {
+  return {
+    type: 'SORT_BY_HUMIDITY_ASC',
+    sortedData
+  };
+}
+
+export function sortHumidityDesc(sortedData) {
+  return {
+    type: 'SORT_BY_HUMIDITY_DESC',
+    sortedData
+  };
+}
+
 export function getWeather(cityName) {
   return (dispatch) => {
     dispatch(resetFields());

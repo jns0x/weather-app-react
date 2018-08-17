@@ -1,6 +1,4 @@
 import _ from 'lodash';
-import { sortBy } from './actions';
-import { dispatch } from '../node_modules/rxjs/internal/observable/range';
 export const apiUrl = "https:/api.openweathermap.org/data/2.5/group?id=";
 export const apiUrlCity = "https:/api.openweathermap.org/data/2.5/weather?q=";
 export const apiKey = "&APPID=8496070a6ed3bd27bd80c6c4595509b1";
@@ -114,5 +112,14 @@ export const sortByTempFunc = (data, type) => {
 
 export const sortByWindFunc = (data, type) => {
   const list = _.orderBy(data, [item => item.wind.speed], [type])
+  return list
+}
+export const sortByCloudsFunc = (data, type) => {
+  const list = _.orderBy(data, [item => item.clouds.all], [type])
+  return list
+}
+
+export const sortByHumidityFunc = (data, type) => {
+  const list = _.orderBy(data, [item => item.main.humidity], [type])
   return list
 }

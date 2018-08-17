@@ -1,8 +1,8 @@
 import React from 'react';
 import store from '../../store';
 import Button from '../Button/Button'
-import { sortByTempFunc, sortByWindFunc } from '../../config';
-import { sortTempAsc, sortTempDesc, sortWindAsc, sortWindDesc } from '../../actions';
+import { sortByTempFunc, sortByWindFunc, sortByHumidityFunc, sortByCloudsFunc } from '../../config';
+import { sortTempAsc, sortTempDesc, sortWindAsc, sortWindDesc, sortHumidityAsc, sortHumidityDesc } from '../../actions';
 import './BtnSorting.scss';
 
 
@@ -30,12 +30,31 @@ const BtnSorting = () => {
     }
   }
 
+  const sortByClouds = () => {
+    if (!sortType.sort) {
+      store.dispatch(sortWindAsc(sortByCloudsFunc(citiesArr, 'asc')))
+    } else if (sortType.sort.wind === 'asc') {
+      store.dispatch(sortWindDesc(sortByCloudsFunc(citiesArr, 'desc')))
+    } else {
+      store.dispatch(sortWindAsc(sortByCloudsFunc(citiesArr, 'asc')))
+    }
+  }
+  const sortByHumidity = () => {
+    if (!sortType.sort) {
+      store.dispatch(sortWindAsc(sortByHumidityFunc(citiesArr, 'asc')))
+    } else if (sortType.sort.wind === 'asc') {
+      store.dispatch(sortWindDesc(sortByHumidityFunc(citiesArr, 'desc')))
+    } else {
+      store.dispatch(sortWindAsc(sortByHumidityFunc(citiesArr, 'asc')))
+    }
+  }
 
   return (
     <div className="sorting--buttons">
-      <Button handleClick={sortByTemp} label="Sort by temp" cn={"btn"} />
-      <Button handleClick={sortByWind} label="Sort by wind" cn={"btn"} />
-      <Button label="sort" cn={"btn"} />
+      <Button handleClick={sortByTemp} label="by temp" cn={"btn"} />
+      <Button handleClick={sortByWind} label="by wind" cn={"btn"} />
+      <Button handleClick={sortByClouds} label="by clouds" cn={"btn"} />
+      <Button handleClick={sortByHumidity} label="by humidity" cn={"btn"} />
     </div>
   )
 }
