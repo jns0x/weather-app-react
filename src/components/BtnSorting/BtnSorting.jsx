@@ -10,6 +10,7 @@ const BtnSorting = () => {
 
   const citiesArr = store.getState().cityList.list;
   const sortType = store.getState().cityList;
+
   const sortByTemp = () => {
     if (!sortType.sort) {
       store.dispatch(sortTempAsc(sortByTempFunc(citiesArr, 'asc')))
@@ -48,6 +49,7 @@ const BtnSorting = () => {
       store.dispatch(sortHumidityAsc(sortByHumidityFunc(citiesArr, 'asc')))
     }
   }
+
 
   return (
     <div className="sorting--buttons">
