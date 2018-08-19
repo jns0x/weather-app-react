@@ -20,13 +20,16 @@ class Main extends Component {
           (<p>Sorry! There was an error loading the items</p>) : ''}
         {isLoading ?
           (<p>Loading…</p>) : ''}
+
         {cityWeather.id ?
           <WeatherBox weather={cityWeather} key={cityWeather.id} /> : ''
         }
         {cityList.list ? <BtnSorting /> : ''}
-        {cityList.list ? cityList.list.map(item => <WeatherBox weather={item} key={item.id} />) : ''}
-        {/* {cityList.list ? console.log(store.getState()) : ''} */}
-        <BtnCities label="Cities in Poland" />
+        <div className="weather-box-wrapper">
+          {cityList.list ? cityList.list.map(item => <WeatherBox weather={item} key={item.id} />) : ''}
+          {/* {cityList.list ? console.log(store.getState()) : ''} */}
+          <BtnCities label="Cities in Poland" />
+        </div>
       </div>
     )
   }

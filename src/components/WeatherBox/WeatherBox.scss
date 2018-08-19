@@ -13,3 +13,16 @@
     margin: -2rem 0.5rem;
   }
 }
+
+@media (min-width: 576px){
+  .weather-box{
+    max-width: 15rem;
+    .weather-icon{
+
+    }
+    .weather-icon{
+      width: 5rem;
+
+    }
+  }
+}
