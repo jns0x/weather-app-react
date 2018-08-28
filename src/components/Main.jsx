@@ -6,8 +6,6 @@ import WeatherBox from './WeatherBox/WeatherBox';
 import BtnCities from './BtnCities/BtnCities';
 import BtnSorting from './BtnSorting/BtnSorting';
 import './Main.scss';
-import store from '../store';
-import _ from "lodash";
 
 class Main extends Component {
 
@@ -16,18 +14,12 @@ class Main extends Component {
     return (
       <div className="main-container">
         <SearchBox />
-        {hasErrored ?
-          (<p>Sorry! There was an error loading the items</p>) : ''}
-        {isLoading ?
-          (<p>Loading…</p>) : ''}
-
-        {cityWeather.id ?
-          <WeatherBox weather={cityWeather} key={cityWeather.id} /> : ''
-        }
-        {cityList.list ? <BtnSorting /> : ''}
+        {hasErrored && <p>Sorry! There was an error loading the items</p>}
+        {isLoading && <p>Loading…</p>}
+        {cityWeather.id && <WeatherBox weather={cityWeather} key={cityWeather.id} />}
+        {cityList.list && <BtnSorting />}
         <div className="weather-box-wrapper">
-          {cityList.list ? cityList.list.map(item => <WeatherBox weather={item} key={item.id} />) : ''}
-          {/* {cityList.list ? console.log(store.getState()) : ''} */}
+          {cityList.list && cityList.list.map(item => <WeatherBox weather={item} key={item.id} />)}
           <BtnCities label="Cities in Poland" />
         </div>
       </div>

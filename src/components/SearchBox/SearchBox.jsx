@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { setTypedCity, getWeather } from '../../actions';
 import store from '../../store/';
 
@@ -27,10 +26,4 @@ class SearchBox extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    typing: state.typing
-  };
-};
-
-export default connect(mapStateToProps)(SearchBox);
+export default SearchBox;

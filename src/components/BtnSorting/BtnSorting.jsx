@@ -1,16 +1,15 @@
 import React from 'react';
 import store from '../../store';
+import { connect } from 'react-redux';
 import Button from '../Button/Button'
 import { sortByTempFunc, sortByWindFunc, sortByHumidityFunc, sortByCloudsFunc } from '../../config';
 import { sortTempAsc, sortTempDesc, sortWindAsc, sortWindDesc, sortHumidityAsc, sortHumidityDesc, sortCloudsDesc, sortCloudsAsc } from '../../actions';
 import './BtnSorting.scss';
 
 
-const BtnSorting = () => {
+const BtnSorting = (props) => {
 
-  const citiesArr = store.getState().cityList.list;
-  const sortType = store.getState().cityList;
-
+  const { citiesArr, sortType } = props;
   const sortByTemp = () => {
     if (!sortType.sort) {
       store.dispatch(sortTempAsc(sortByTempFunc(citiesArr, 'asc')))
@@ -61,4 +60,11 @@ const BtnSorting = () => {
   )
 }
 
-export default BtnSorting;
+const mapStateToProps = (state) => {
+  return {
+    citiesArr: state.cityList.list,
+    sortType: state.cityList,
+  };
+};
+
+export default connect(mapStateToProps)(BtnSorting);

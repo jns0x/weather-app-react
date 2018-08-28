@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import store from '../../store';
 import Button from '../Button/Button';
 import { getWeatherList } from '../../actions';
@@ -20,19 +21,11 @@ const BtnCities = props => {
   }
 
   const totalRecall = () => {
-    console.log('cos');
     setInterval(() => mapArr(), 300000)
   }
   return (
     <Button label={props.label} handleClick={mapArr} cn={"btn btn--cities"} />
   )
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     typing: state.typing
-//   };
-// };
-
 
 export default BtnCities;

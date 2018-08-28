@@ -42,6 +42,7 @@ export function cityWeather(state = [], action) {
   }
 }
 export function typing(state = "", action) {
+  console.log(state);
   switch (action.type) {
     case "SET_TYPING_VALUE":
       return action.inputField;
@@ -51,7 +52,7 @@ export function typing(state = "", action) {
 }
 
 export function cityList(state = [], action) {
-  console.log(state)
+  // console.log(state)
   switch (action.type) {
     case "ID_FETCH_DATA_SUCCESS":
       return action.data;
