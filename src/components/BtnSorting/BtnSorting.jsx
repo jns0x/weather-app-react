@@ -1,5 +1,6 @@
 import React from 'react';
 import store from '../../store';
+import { object, array } from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '../Button/Button'
 import { sortByTempFunc, sortByWindFunc, sortByHumidityFunc, sortByCloudsFunc } from '../../config';
@@ -66,5 +67,10 @@ const mapStateToProps = (state) => {
     sortType: state.cityList,
   };
 };
+
+BtnSorting.propTypes = {
+  citiesArr: array.isRequired,
+  sortType: object.isRequired,
+}
 
 export default connect(mapStateToProps)(BtnSorting);

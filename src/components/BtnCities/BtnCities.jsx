@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import store from '../../store';
 import Button from '../Button/Button';
+import { string } from 'prop-types';
 import { getWeatherList } from '../../actions';
 import { citiesArr } from '../../config';
 import './BtnCities.scss';
@@ -26,6 +26,10 @@ const BtnCities = props => {
   return (
     <Button label={props.label} handleClick={mapArr} cn={"btn btn--cities"} />
   )
+}
+
+BtnCities.propTypes = {
+  label: string.isRequired
 }
 
 export default BtnCities;
