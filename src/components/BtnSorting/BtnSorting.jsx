@@ -9,7 +9,6 @@ import './BtnSorting.scss';
 
 
 const BtnSorting = (props) => {
-
   const { citiesArr, sortType } = props;
   const sortByTemp = () => {
     if (!sortType.sort) {
@@ -50,10 +49,20 @@ const BtnSorting = (props) => {
     }
   }
 
+  const handleSymbol = (type) => {
+    if (sortType[type] === 'asc') {
+      return '&uarr;'
+    } else if (sortType[type] === 'desc') {
+      return '&darr;'
+    } else {
+      return '';
+    }
+  }
+
 
   return (
     <div className="sorting--buttons">
-      <Button handleClick={sortByTemp} label="by temp" cn={"btn"} />
+      <Button handleClick={sortByTemp} label={`by temp ${handleSymbol('temp')}`} cn={"btn"} />
       <Button handleClick={sortByWind} label="by wind" cn={"btn"} />
       <Button handleClick={sortByClouds} label="by clouds" cn={"btn"} />
       <Button handleClick={sortByHumidity} label="by humidity" cn={"btn"} />

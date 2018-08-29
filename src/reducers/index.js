@@ -69,7 +69,6 @@ export function cityList(state = [], action) {
         list: action.sortedData,
         sort: {
           temp: 'asc',
-          wind: ''
         }
       }
     case SORT_BY_TEMP_DESC:
@@ -78,7 +77,6 @@ export function cityList(state = [], action) {
         list: action.sortedData,
         sort: {
           temp: 'desc',
-          wind: ''
         }
       }
     case SORT_BY_WIND_ASC:
@@ -86,7 +84,6 @@ export function cityList(state = [], action) {
         ...state,
         list: action.sortedData,
         sort: {
-          temp: '',
           wind: 'asc'
         }
       }
@@ -95,8 +92,7 @@ export function cityList(state = [], action) {
         ...state,
         list: action.sortedData,
         sort: {
-          temp: '',
-          wind: 'desc'
+          wind: 'desc',
         }
       }
     case SORT_BY_HUMIDITY_ASC:
@@ -104,9 +100,6 @@ export function cityList(state = [], action) {
         ...state,
         list: action.sortedData,
         sort: {
-          temp: '',
-          wind: '',
-          clouds: '',
           humidity: 'asc'
         }
       }
@@ -115,9 +108,6 @@ export function cityList(state = [], action) {
         ...state,
         list: action.sortedData,
         sort: {
-          temp: '',
-          wind: '',
-          clouds: '',
           humidity: 'desc'
         }
       }
@@ -126,10 +116,7 @@ export function cityList(state = [], action) {
         ...state,
         list: action.sortedData,
         sort: {
-          temp: '',
-          wind: '',
           clouds: 'asc',
-          humidity: ''
         }
       }
     case SORT_BY_CLOUDS_DESC:
@@ -137,10 +124,7 @@ export function cityList(state = [], action) {
         ...state,
         list: action.sortedData,
         sort: {
-          temp: '',
-          wind: '',
           clouds: 'desc',
-          humidity: ''
         }
       }
     case RESET_FIELDS:

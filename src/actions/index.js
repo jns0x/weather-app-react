@@ -106,6 +106,7 @@ export function getWeather(cityName) {
   return (dispatch) => {
     dispatch(resetFields());
     dispatch(itemsIsLoading(true));
+
     axios.get(`${apiUrlCity}${cityName}${apiKey}${metric}`)
       .then((response) => {
         if (response.statusText !== "OK") {

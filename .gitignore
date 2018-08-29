@@ -4,3 +4,4 @@ public
 yarn.lock
 .vscode
 .DS_store
+yarn-error.log
