@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { orderBy as _orderBy } from 'lodash';
 export const apiUrl = "https:/api.openweathermap.org/data/2.5/group?id=";
 export const apiUrlCity = "https:/api.openweathermap.org/data/2.5/weather?q=";
 export const apiKey = "&APPID=415ae6cb177439a3428024a8f2b41f09";
@@ -106,20 +106,20 @@ export const initialStore = {
 }
 
 export const sortByTempFunc = (data, type) => {
-  const list = _.orderBy(data, [item => item.main.temp], [type])
+  const list = _orderBy(data, [item => item.main.temp], [type])
   return list
 }
 
 export const sortByWindFunc = (data, type) => {
-  const list = _.orderBy(data, [item => item.wind.speed], [type])
+  const list = _orderBy(data, [item => item.wind.speed], [type])
   return list
 }
 export const sortByCloudsFunc = (data, type) => {
-  const list = _.orderBy(data, [item => item.clouds.all], [type])
+  const list = _orderBy(data, [item => item.clouds.all], [type])
   return list
 }
 
 export const sortByHumidityFunc = (data, type) => {
-  const list = _.orderBy(data, [item => item.main.humidity], [type])
+  const list = _orderBy(data, [item => item.main.humidity], [type])
   return list
 }
