@@ -7,9 +7,7 @@ import {
   SORT_BY_CLOUDS_ASC,
   SORT_BY_CLOUDS_DESC
 } from "../actions/actionTypes";
-import { combineReducers, bindActionCreators } from 'redux';
-import { initialStore } from '../config';
-
+import { combineReducers } from 'redux';
 
 export default combineReducers({
   itemsHasErrored,
@@ -69,6 +67,7 @@ export function cityList(state = [], action) {
         list: action.sortedData,
         sort: {
           temp: 'asc',
+          tempIco: '&uarr;'
         }
       }
     case SORT_BY_TEMP_DESC:

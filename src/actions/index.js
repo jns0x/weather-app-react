@@ -127,6 +127,7 @@ export function getWeather(cityName) {
 }
 
 export function getWeatherList(ids) {
+  console.log('request');
   return (dispatch) => {
     dispatch(resetFields());
     dispatch(itemsIsLoading(true));

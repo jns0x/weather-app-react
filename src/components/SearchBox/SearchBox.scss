@@ -34,12 +34,15 @@
     background: white;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     width: auto;
     height: auto;
     padding: 0.5rem;
     outline: none;
     border:none;
     border-left: 0.1rem solid black;
+
     cursor:pointer;
     &:active{
       background: lightblue;

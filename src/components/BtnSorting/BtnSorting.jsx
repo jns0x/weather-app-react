@@ -2,7 +2,8 @@ import React from 'react';
 import store from '../../store';
 import { object, array } from 'prop-types';
 import { connect } from 'react-redux';
-import Button from '../Button/Button'
+import Button from '../Button/Button';
+
 import { sortByTempFunc, sortByWindFunc, sortByHumidityFunc, sortByCloudsFunc } from '../../config';
 import { sortTempAsc, sortTempDesc, sortWindAsc, sortWindDesc, sortHumidityAsc, sortHumidityDesc, sortCloudsDesc, sortCloudsAsc } from '../../actions';
 import './BtnSorting.scss';
@@ -10,6 +11,7 @@ import './BtnSorting.scss';
 
 const BtnSorting = (props) => {
   const { citiesArr, sortType } = props;
+
   const sortByTemp = () => {
     if (!sortType.sort) {
       store.dispatch(sortTempAsc(sortByTempFunc(citiesArr, 'asc')))
@@ -49,23 +51,21 @@ const BtnSorting = (props) => {
     }
   }
 
-  const handleSymbol = (type) => {
-    if (sortType[type] === 'asc') {
-      return '&uarr;'
-    } else if (sortType[type] === 'desc') {
-      return '&darr;'
-    } else {
-      return '';
-    }
+  const arrowStatus = {
+    temp: sortType.sort && sortType.sort.temp,
+    wind: sortType.sort && sortType.sort.wind,
+    clouds: sortType.sort && sortType.sort.clouds,
+    humidity: sortType.sort && sortType.sort.humidity
   }
+
 
 
   return (
     <div className="sorting--buttons">
-      <Button handleClick={sortByTemp} label={`by temp ${handleSymbol('temp')}`} cn={"btn"} />
-      <Button handleClick={sortByWind} label="by wind" cn={"btn"} />
-      <Button handleClick={sortByClouds} label="by clouds" cn={"btn"} />
-      <Button handleClick={sortByHumidity} label="by humidity" cn={"btn"} />
+      <Button handleClick={sortByTemp} label='by temp' cn={arrowStatus.temp} >asdasd</Button>
+      <Button handleClick={sortByWind} label="by wind" cn={arrowStatus.wind} />
+      <Button handleClick={sortByClouds} label="by clouds" cn={arrowStatus.clouds} />
+      <Button handleClick={sortByHumidity} label="by humidity" cn={arrowStatus.humidity} />
     </div>
   )
 }

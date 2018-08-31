@@ -14,6 +14,7 @@ module.exports = {
     filename: "bundled.js",
     crossOriginLoading: "anonymous"
   },
+  mode: "development",
   devServer: {
     contentBase: "./dist",
     // hot: true

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { setTypedCity, getWeather } from '../../actions';
 import store from '../../store/';
+import Button from '../Button/Button';
 
 import './SearchBox.scss';
 class SearchBox extends Component {
@@ -19,7 +20,7 @@ class SearchBox extends Component {
         <h3 className="search-heading">Type city name</h3>
         <form onSubmit={this.handleSubmit}>
           <input className="input-search" type="text" placeholder="Type city name" onChange={this.handleChange} />
-          <button onClick={this.handleSubmit} className="btn--search">Search</button>
+          <Button handleClick={this.handleSubmit} cn="btn--search" label={"Search"} />
         </form>
       </div >
     )

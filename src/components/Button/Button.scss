@@ -2,7 +2,14 @@
   background: white;
   padding: 0.5rem;
   border-radius: 1rem;
-  // &:after {
-  //   content: "\2191";
-  // }
+  &.upArrow{
+    &:after {
+      content: " \2191";
+    }
+  }
+  &.downArrow{
+    &:after {
+      content: " \2193";
+    }
+  }
 }
