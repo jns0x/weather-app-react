@@ -1,5 +1,5 @@
 import React from 'react';
-import './SelectBox.scss';
+import './SelectBox.sass';
 
 const SelectBox = (props) => (
   <div className="select-box">
