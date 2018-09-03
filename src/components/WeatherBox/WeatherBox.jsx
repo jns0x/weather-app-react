@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
 import Loading from '../Loading/Loading';
-import { oneOfType, arrayOf, objectOf, shape, string, number, object } from 'prop-types';
+import { arrayOf, shape, string, number, object } from 'prop-types';
 
 import './WeatherBox.scss';
 
 class WeatherBox extends Component {
-  // state = {
-  //   loading: true
-  // }
-
-  // handleLoading() {
-  //   this.setState({ loading: false })
-  // }
-
-
 
   render() {
-    const { weatherInCity, loading } = this.props;
+    const { weatherInCity, animationOrder } = this.props;
     const { name } = weatherInCity;
     const { temp, humidity } = weatherInCity.main;
     const { speed } = weatherInCity.wind;
@@ -24,27 +15,28 @@ class WeatherBox extends Component {
     const { all: clouds } = weatherInCity.clouds;
 
     return (
-      <div className="weather-box">
-        <div>
-          <p>{name}</p>
-          <p>temp: {temp}</p>
-          <p>wind: {speed}</p>
-          <p>humidity: {humidity}</p>
-          <p>clouds: {clouds}</p>
-        </div>
-        {/* {loading ? <Loading /> : */}
-        {<img className="weather-icon"
-          src={`https://openweathermap.org/img/w/${icon}.png`}
-        /> ? <img className="weather-icon"
-          src={`https://openweathermap.org/img/w/${icon}.png`}
-          /> : <Loading />}
-
+      
+      <div className={`weather-box weather-${animationOrder}`} ani={animationOrder}>
+          <div>
+            <p>{name}</p>
+            <p>temp: {temp}</p>
+            <p>wind: {speed}</p>
+            <p>humidity: {humidity}</p>
+            <p>clouds: {clouds}</p>
+            </div>
+            {/* {loading ? <Loading /> : */}
+            {<img className="weather-icon"
+            src={`https://openweathermap.org/img/w/${icon}.png`}
+            /> ? <img className="weather-icon"
+            src={`https://openweathermap.org/img/w/${icon}.png`}
+            /> : <Loading />}
       </div >
     )
   }
 }
 
 WeatherBox.propTypes = {
+  animationOrder: number,
   weatherInCity: object.isRequired,
   weatherInCity: shape({
     name: string.isRequired,

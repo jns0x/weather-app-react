@@ -17,10 +17,10 @@ const BtnCities = props => {
       return `${item.id}`
     })
     getCities(ids);
-    totalRecall();
+    refreshData();
   }
 
-  const totalRecall = () => {
+  const refreshData = () => {
     setInterval(() => mapArr(), 300000)
   }
   return (

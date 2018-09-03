@@ -24,7 +24,24 @@
     }
     .weather-icon{
       width: 5rem;
-
     }
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+  @for $i from 0 through 18 {
+    .weather-#{$i} {
+      animation: fadein 1s ease-out $i * 0.08s;;
   }
 }

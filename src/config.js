@@ -1,4 +1,4 @@
-import { orderBy as _orderBy } from 'lodash';
+import { orderBy as _orderBy } from "lodash";
 export const apiUrl = "https:/api.openweathermap.org/data/2.5/group?id=";
 export const apiUrlCity = "https:/api.openweathermap.org/data/2.5/weather?q=";
 export const apiKey = "&APPID=8496070a6ed3bd27bd80c6c4595509b1";
@@ -6,6 +6,9 @@ export const menuItems = ["Search single city"];
 export const metric = "&units=metric";
 export const imperial = "&units=imperial";
 export const htmlMode = "&mode=html";
+export const placesApiKey = "&key=AIzaSyCjZpC66gOaGLtA2XDcsoKs-FFhQ__81tI";
+export const placesUrl =
+  "https://maps.googleapis.com/maps/api/place/autocomplete/json?types=(cities)&language=en&input=";
 
 export const getCity = (api, city) => {
   let thisCity = {};
@@ -13,7 +16,7 @@ export const getCity = (api, city) => {
     .get(`${api}${city}${apiKey}${metric}`, {
       mode: "cors"
     })
-    .then(response => console.log(response))
+    .then(response => console.log(response));
 };
 
 export const citiesArr = [
@@ -95,32 +98,30 @@ export const citiesArr = [
 //api.openweathermap.org/data/2.5/weather?lat=35&lon=139
 //http://api.openweathermap.org/data/2.5/group?id=524901,703448,2643743&units=metric
 
-
-
 //Store layout
 
 export const initialStore = {
   itemsHasErrored: false,
   itemsIsLoading: false,
-  typing: '',
+  typing: "",
   cityWeather: []
-}
+};
 
 export const sortByTempFunc = (data, type) => {
-  const list = _orderBy(data, [item => item.main.temp], [type])
-  return list
-}
+  const list = _orderBy(data, [item => item.main.temp], [type]);
+  return list;
+};
 
 export const sortByWindFunc = (data, type) => {
-  const list = _orderBy(data, [item => item.wind.speed], [type])
-  return list
-}
+  const list = _orderBy(data, [item => item.wind.speed], [type]);
+  return list;
+};
 export const sortByCloudsFunc = (data, type) => {
-  const list = _orderBy(data, [item => item.clouds.all], [type])
-  return list
-}
+  const list = _orderBy(data, [item => item.clouds.all], [type]);
+  return list;
+};
 
 export const sortByHumidityFunc = (data, type) => {
-  const list = _orderBy(data, [item => item.main.humidity], [type])
-  return list
-}
+  const list = _orderBy(data, [item => item.main.humidity], [type]);
+  return list;
+};
